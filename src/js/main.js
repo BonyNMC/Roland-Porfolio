@@ -28,7 +28,51 @@ async function loadDynamicData() {
 }
 
 function applyConfig(config) {
-  // Update contact links
+  // Hero headlines
+  const h1 = document.getElementById('hero-headline-1');
+  if (h1 && config.hero_headline_1) h1.textContent = config.hero_headline_1;
+
+  const h2 = document.getElementById('hero-headline-2');
+  if (h2 && config.hero_headline_2) h2.textContent = config.hero_headline_2;
+
+  // Hero description
+  const desc = document.getElementById('hero-description');
+  if (desc && config.hero_description) desc.textContent = config.hero_description;
+
+  // Portrait image from Drive
+  const portrait = document.getElementById('hero-portrait');
+  if (portrait && config.portrait_url) {
+    portrait.src = driveImageUrl(config.portrait_url);
+  }
+
+  // Stamp
+  const stampYear = document.getElementById('hero-stamp-year');
+  if (stampYear && config.dob) {
+    const year = config.dob.split('/').pop().trim();
+    stampYear.textContent = `EST. ${year}`;
+  }
+
+  const stampLocation = document.getElementById('hero-stamp-location');
+  if (stampLocation && config.location) stampLocation.textContent = config.location;
+
+  // About metadata
+  const dob = document.getElementById('about-dob');
+  if (dob && config.dob) dob.textContent = config.dob;
+
+  const loc = document.getElementById('about-location');
+  if (loc && config.location) loc.textContent = config.location;
+
+  const cert = document.getElementById('about-certification');
+  if (cert && config.certification) cert.textContent = config.certification;
+
+  // About mission & detail
+  const mission = document.getElementById('about-mission');
+  if (mission && config.about_mission) mission.textContent = config.about_mission;
+
+  const detail = document.getElementById('about-detail');
+  if (detail && config.about_detail) detail.textContent = config.about_detail;
+
+  // Contact links
   const emailLink = document.getElementById('contact-email');
   if (emailLink && config.email) emailLink.href = `mailto:${config.email}`;
 
@@ -37,12 +81,6 @@ function applyConfig(config) {
 
   const footerLinkedin = document.getElementById('footer-linkedin');
   if (footerLinkedin && config.linkedin_url) footerLinkedin.href = config.linkedin_url;
-
-  // Portrait image from Drive
-  const portrait = document.getElementById('hero-portrait');
-  if (portrait && config.portrait_url) {
-    portrait.src = driveImageUrl(config.portrait_url);
-  }
 }
 
 function applyBlogPreview(posts) {
