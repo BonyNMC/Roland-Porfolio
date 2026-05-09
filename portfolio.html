@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hồ sơ Năng lực & Dự án — Nguyen Manh Cuong</title>
+  <meta name="description" content="Showcase năng lực Quản trị Sản xuất, Tiêu chuẩn Vận hành, và Chuyển đổi Số của Nguyễn Mạnh Cường." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/src/css/variables.css" />
+  <link rel="stylesheet" href="/src/css/base.css" />
+  <link rel="stylesheet" href="/src/css/components.css" />
+  <link rel="stylesheet" href="/src/css/layout.css" />
+  <link rel="stylesheet" href="/src/css/animations.css" />
+  <link rel="stylesheet" href="/src/css/pages/portfolio.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__brand">Nguyen Manh Cuong</a>
+      <nav class="navbar__links">
+        <a href="/" class="navbar__link">Home</a>
+        <a href="/portfolio.html" class="navbar__link navbar__link--active">Portfolio</a>
+        <a href="/blog.html" class="navbar__link">Blog</a>
+        <a href="/podcast.html" class="navbar__link">Podcast</a>
+      </nav>
+      <a href="/#contact" class="btn-plinth navbar__cta">Contact</a>
+      <button class="navbar__mobile-toggle" aria-label="Menu"><span class="material-symbols-outlined">menu</span></button>
+    </div>
+  </header>
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="/" class="mobile-menu__link">Home</a>
+    <a href="/portfolio.html" class="mobile-menu__link mobile-menu__link--active">Portfolio</a>
+    <a href="/blog.html" class="mobile-menu__link">Blog</a>
+    <a href="/podcast.html" class="mobile-menu__link">Podcast</a>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="section section-py-lg">
+      <div class="grid-12">
+        <div class="col-span-3 portfolio-hero__aside reveal-left">
+          <span class="text-label-caps text-on-surface-variant" style="display:block;margin-bottom:var(--space-unit);">01 / ARCHIVE</span>
+          <span class="text-label-caps text-outline">UPDATED: 2024</span>
+        </div>
+        <div class="col-span-9 reveal">
+          <h1 class="text-display-lg text-primary" style="margin-bottom:var(--space-3);">Hồ sơ Năng lực & Dự án</h1>
+          <p class="text-body-lg text-on-surface-variant" style="max-width:640px;line-height:1.7;">
+            Showcase năng lực chuyên môn trong Quản trị Sản xuất Xuất sắc, Tiêu chuẩn Vận hành, và Chuyển đổi Số. Bộ sưu tập các triển khai công nghiệp và tối ưu hóa chiến lược.
+          </p>
+          <div style="margin-top:var(--space-4);">
+            <span class="stamp" style="border:2px solid var(--primary);color:var(--primary);font-size:10px;transform:rotate(-2deg);display:inline-block;">
+              <span class="text-label-caps">APPROVED FOR REVIEW</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="section" style="margin-bottom:var(--space-12);">
+      <div class="grid-12" style="margin-bottom:var(--space-6);">
+        <div class="col-span-3" style="border-top:var(--border-ghost);padding-top:var(--space-2);">
+          <h2 class="text-headline-sm text-primary">Key Projects</h2>
+        </div>
+        <div class="col-span-9">
+          <div class="projects-grid reveal-stagger" id="projects-grid">
+            <!-- Dynamic content loaded from API -->
+            <div class="skeleton" style="height:280px;"></div>
+            <div class="skeleton" style="height:280px;"></div>
+            <div class="skeleton" style="height:280px;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" style="margin-bottom:var(--space-12);">
+      <div class="skills-section reveal">
+        <div class="grid-12">
+          <div class="col-span-4" style="margin-bottom:var(--space-4);">
+            <h2 class="text-headline-sm text-primary" style="margin-bottom:var(--space-2);">Technical Proficiencies</h2>
+            <p class="text-body-md text-on-surface-variant">A foundational toolkit blending traditional manufacturing standards with modern digital operational platforms.</p>
+          </div>
+          <div class="col-span-8" id="skills-container">
+            <div class="skeleton" style="height:120px;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" style="margin-bottom:var(--space-12);">
+      <h2 class="text-headline-sm text-primary reveal" style="text-align:center;margin-bottom:var(--space-4);">Colleague Insights</h2>
+      <div class="testimonials-grid reveal-stagger" id="testimonials-grid">
+        <div class="skeleton" style="height:200px;"></div>
+        <div class="skeleton" style="height:200px;"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__brand-name">Nguyen Manh Cuong</div>
+        <p class="footer__brand-copy">© 2024 Nguyen Manh Cuong. Manufacturing Excellence & Digital Transformation.</p>
+      </div>
+      <nav class="footer__links">
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="https://open.spotify.com/show/6yPXHY4USWEaZ7KY5rRANB" class="footer__link" target="_blank">Spotify</a>
+        <a href="#" class="footer__link">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/portfolio.js"></script>
+</body>
+</html>

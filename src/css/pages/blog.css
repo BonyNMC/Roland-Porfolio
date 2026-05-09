@@ -1,0 +1,223 @@
+/* Blog Page Styles */
+
+.blog-header {
+  border-left: 4px solid var(--primary);
+  padding-left: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+/* Sidebar */
+.blog-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+@media (max-width: 767px) {
+  .blog-sidebar { margin-bottom: var(--space-6); }
+}
+
+/* Search */
+.blog-search {
+  position: relative;
+}
+
+.blog-search__input {
+  width: 100%;
+  padding-right: var(--space-4);
+}
+
+.blog-search__icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--on-surface-variant);
+}
+
+/* PARA Navigation */
+.para-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-unit);
+}
+
+.para-nav__title {
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-unit);
+  border-bottom: var(--border-ghost);
+  letter-spacing: 0.15em;
+}
+
+.para-nav__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-unit) var(--space-2);
+  border: 1px solid transparent;
+  color: var(--on-surface-variant);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.para-nav__item:hover {
+  background-color: rgba(230,238,255,0.5);
+  border-color: rgba(130,116,112,0.2);
+}
+
+.para-nav__item--active {
+  background-color: var(--surface-container);
+  border-color: rgba(130,116,112,0.2);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.para-nav__item-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-unit);
+}
+
+.para-nav__item-left .material-symbols-outlined {
+  font-size: 20px;
+}
+
+/* Subscribe Card */
+.subscribe-card {
+  border: 1px solid rgba(130,116,112,0.3);
+  padding: var(--space-2);
+  position: relative;
+  background-color: var(--surface-bright);
+  margin-top: var(--space-4);
+}
+
+.subscribe-card__label {
+  position: absolute;
+  top: -10px;
+  left: var(--space-2);
+  background-color: var(--background);
+  padding: 0 var(--space-unit);
+}
+
+/* Blog Content Header */
+.blog-content__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-2);
+  border-bottom: var(--border-ghost);
+}
+
+/* Blog Grid */
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Blog Article Card */
+.blog-card {
+  border: 1px solid rgba(130,116,112,0.2);
+  background-color: var(--surface-bright);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: border-color var(--transition-base);
+}
+
+.blog-card:hover { border-color: rgba(68,42,34,0.5); }
+
+.blog-card--featured {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .blog-card--featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.blog-card__image {
+  height: 200px;
+  width: 100%;
+  background-color: var(--surface-container);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(130,116,112,0.2);
+}
+
+.blog-card--featured .blog-card__image {
+  height: 100%;
+  min-height: 250px;
+  border-bottom: none;
+}
+
+@media (min-width: 768px) {
+  .blog-card--featured .blog-card__image {
+    border-right: 1px solid rgba(130,116,112,0.2);
+  }
+}
+
+.blog-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: transform 0.7s ease;
+}
+
+.blog-card:hover .blog-card__image img { transform: scale(1.05); }
+
+.blog-card__content {
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blog-card--featured .blog-card__content {
+  padding: var(--space-4);
+  justify-content: center;
+}
+
+.blog-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-unit);
+  margin-bottom: var(--space-2);
+}
+
+.blog-card__para-badge {
+  background-color: rgba(121,87,58,0.1);
+  color: var(--secondary);
+  padding: 2px 8px;
+  border: 1px solid rgba(121,87,58,0.2);
+}
+
+.blog-card__readmore {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-unit);
+  padding-top: var(--space-2);
+  border-top: 1px solid rgba(130,116,112,0.1);
+  transition: gap var(--transition-base);
+}
+
+.blog-card:hover .blog-card__readmore { gap: var(--space-2); }
+
+/* Quote Card (Archive) */
+.blog-card--quote {
+  grid-column: 1 / -1;
+  background-color: var(--surface-dim);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

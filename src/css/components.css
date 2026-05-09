@@ -1,0 +1,287 @@
+/* ==========================================================================
+   COMPONENTS — Reusable UI Elements (Stitch Design System)
+   Sharp Industrial Aesthetic: 0px radius, ghost borders, tonal layering
+   ========================================================================== */
+
+/* ── Buttons ── */
+
+/* Primary: "Plinth" style — Deep Brown bg, white text */
+.btn-plinth {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-unit);
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--primary-container);
+  color: var(--on-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-label-caps);
+  font-weight: var(--text-label-caps-fw);
+  letter-spacing: var(--text-label-caps-ls);
+  text-transform: uppercase;
+  border: 1px solid var(--primary-container);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-plinth:hover {
+  background-color: transparent;
+  color: var(--primary-container);
+}
+
+.btn-plinth:active {
+  transform: translateY(1px);
+  opacity: 0.9;
+}
+
+/* Secondary: Ghost/Outline style */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-unit);
+  padding: var(--space-2) var(--space-4);
+  background-color: transparent;
+  color: var(--primary);
+  font-family: var(--font-body);
+  font-size: var(--text-label-caps);
+  font-weight: var(--text-label-caps-fw);
+  letter-spacing: var(--text-label-caps-ls);
+  text-transform: uppercase;
+  border: 1px solid var(--outline);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.btn-ghost:hover {
+  border-color: var(--primary);
+  background-color: var(--surface-dim);
+}
+
+/* CTA Link style */
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-unit);
+  font-family: var(--font-body);
+  font-size: var(--text-label-caps);
+  font-weight: var(--text-label-caps-fw);
+  letter-spacing: var(--text-label-caps-ls);
+  text-transform: uppercase;
+  color: var(--secondary);
+  border-bottom: 1px solid var(--secondary);
+  padding-bottom: 4px;
+  transition: all var(--transition-fast);
+}
+
+.btn-link:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* ── Cards ── */
+
+/* Dossier Card: no shadow, 1px ochre border */
+.card-dossier {
+  border: var(--border-ochre);
+  padding: var(--space-3);
+  background-color: var(--surface);
+  border-radius: var(--radius);
+  transition: transform var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-dossier:hover {
+  transform: translateY(-4px);
+}
+
+/* Archive Card: dimmed variant */
+.card-archive {
+  border: var(--border-ochre);
+  padding: var(--space-3);
+  background-color: rgba(204, 219, 243, 0.3);
+  border-radius: var(--radius);
+  opacity: 0.8;
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-archive:hover {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+/* Service Card: blueprint divider style */
+.card-service {
+  padding: var(--space-4) var(--space-6);
+  transition: background-color var(--transition-base);
+}
+
+.card-service:hover {
+  background-color: var(--surface);
+}
+
+.card-service__icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(68, 42, 34, 0.1);
+  background-color: rgba(68, 42, 34, 0.05);
+  margin-bottom: var(--space-3);
+}
+
+.card-service__icon .material-symbols-outlined {
+  color: var(--primary);
+  font-size: 24px;
+  transition: transform var(--transition-base);
+}
+
+.card-service:hover .card-service__icon .material-symbols-outlined {
+  transform: scale(1.1);
+}
+
+/* ── Chips / Tags ── */
+.chip {
+  display: inline-block;
+  padding: 4px 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-label-caps);
+  font-weight: var(--text-label-caps-fw);
+  letter-spacing: var(--text-label-caps-ls);
+  text-transform: uppercase;
+  background-color: rgba(71, 85, 105, 0.1);
+  color: var(--on-surface-variant);
+  border-radius: var(--radius);
+}
+
+.chip--active {
+  background-color: var(--primary-container);
+  color: var(--on-primary);
+}
+
+.chip--secondary {
+  background-color: rgba(121, 87, 58, 0.15);
+  color: var(--secondary);
+}
+
+/* ── Industrial Stamp ── */
+.stamp {
+  display: inline-block;
+  border: 1px solid rgba(130, 116, 112, 0.4);
+  background-color: var(--surface);
+  padding: var(--space-2);
+  text-align: center;
+}
+
+/* ── Status Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-unit);
+  padding: 4px 12px;
+  border: 1px solid rgba(130, 116, 112, 0.3);
+  background-color: rgba(204, 219, 243, 0.5);
+}
+
+.badge__dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--secondary);
+  display: block;
+}
+
+/* ── Input: Ledger style (bottom border only) ── */
+.input-ledger {
+  width: 100%;
+  padding: var(--space-unit) 0;
+  border: none;
+  border-bottom: 1px solid var(--outline-variant);
+  background: transparent;
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  transition: border-color var(--transition-fast);
+  outline: none;
+}
+
+.input-ledger:focus {
+  border-bottom-color: var(--primary);
+}
+
+.input-ledger::placeholder {
+  color: var(--outline);
+}
+
+/* ── Quote Block ── */
+.quote-block {
+  background-color: rgba(204, 219, 243, 0.3);
+  padding: var(--space-4) var(--space-6);
+  text-align: center;
+  border: var(--border-ghost);
+}
+
+.quote-block__mark {
+  font-family: var(--font-display);
+  font-size: 48px;
+  color: var(--secondary);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.quote-block__text {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--primary);
+  max-width: 700px;
+  margin: 0 auto var(--space-3);
+}
+
+.quote-block__source {
+  font-family: var(--font-body);
+  font-size: var(--text-label-caps);
+  font-weight: var(--text-label-caps-fw);
+  letter-spacing: var(--text-label-caps-ls);
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+}
+
+/* ── Avatar Circle ── */
+.avatar {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--on-primary);
+  border-radius: 50%;
+}
+
+/* ── Loading Skeleton ── */
+.skeleton {
+  background: linear-gradient(90deg,
+    var(--surface-container-low) 25%,
+    var(--surface-container) 50%,
+    var(--surface-container-low) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: var(--radius);
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

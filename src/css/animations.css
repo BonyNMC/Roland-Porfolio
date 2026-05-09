@@ -1,0 +1,266 @@
+/* ==========================================================================
+   ANIMATIONS — Scroll Reveals, Micro-interactions, Transitions
+   Enhanced for Phase 6 — Premium feel & industrial character
+   ========================================================================== */
+
+/* ── Scroll Reveal (IntersectionObserver) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0ms; opacity: 1; transform: translateY(0); }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 80ms; opacity: 1; transform: translateY(0); }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 160ms; opacity: 1; transform: translateY(0); }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 240ms; opacity: 1; transform: translateY(0); }
+.reveal-stagger.visible > *:nth-child(5) { transition-delay: 320ms; opacity: 1; transform: translateY(0); }
+.reveal-stagger.visible > *:nth-child(6) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
+.reveal-stagger.visible > *:nth-child(7) { transition-delay: 480ms; opacity: 1; transform: translateY(0); }
+.reveal-stagger.visible > *:nth-child(8) { transition-delay: 560ms; opacity: 1; transform: translateY(0); }
+
+/* Slide from left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide from right */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale up */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Image Hover ── */
+.img-grayscale {
+  filter: grayscale(100%) contrast(1.05);
+  transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  mix-blend-mode: multiply;
+}
+
+.img-grayscale:hover {
+  filter: grayscale(0%) contrast(1);
+}
+
+/* ── Page Transition ── */
+.page-enter {
+  animation: pageEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Pulse (for live indicators) ── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ── Tape spin (podcast visual) ── */
+@keyframes tapeSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-tape {
+  animation: tapeSpin 4s linear infinite;
+  animation-play-state: paused;
+}
+
+.animate-tape:hover {
+  animation-play-state: running;
+}
+
+/* ── Float (subtle up-down) ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ── Corner markers (industrial accent) ── */
+.corner-marker::before,
+.corner-marker::after {
+  content: '+';
+  position: absolute;
+  font-family: var(--font-body);
+  font-size: 10px;
+  color: var(--outline);
+  opacity: 0.4;
+}
+
+.corner-marker::before { top: -4px; left: -4px; }
+.corner-marker::after { bottom: -4px; right: -4px; }
+
+/* ── Micro-interaction: Link hover underline draw ── */
+.btn-link {
+  position: relative;
+}
+
+.btn-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--primary);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-link:hover::after {
+  width: 100%;
+}
+
+/* ── Card hover lift ── */
+.card-service,
+.card-dossier,
+.card-archive,
+.project-card,
+.episode-card,
+.blog-card,
+.testimonial-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease;
+}
+
+.card-service:hover,
+.card-dossier:hover,
+.project-card:hover,
+.episode-card:hover,
+.blog-card:hover,
+.testimonial-card:hover {
+  transform: translateY(-3px);
+}
+
+/* ── Button press effect ── */
+.btn-plinth:active,
+.btn-ghost:active {
+  transform: translateY(1px);
+  transition: transform 0.1s ease;
+}
+
+/* ── Navbar transition (smooth shadow on scroll) ── */
+.navbar {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 1px 12px rgba(13, 28, 46, 0.06);
+  border-bottom-color: rgba(130, 116, 112, 0.3);
+}
+
+/* ── Skeleton shimmer (loading) ── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-container) 25%,
+    var(--surface-container-high) 50%,
+    var(--surface-container) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease infinite;
+  border-radius: 0;
+}
+
+/* ── Focus styles (accessibility) ── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-stagger > *,
+  .page-enter {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .card-service:hover,
+  .card-dossier:hover,
+  .project-card:hover,
+  .episode-card:hover,
+  .blog-card:hover,
+  .testimonial-card:hover {
+    transform: none;
+  }
+
+  .animate-tape,
+  .animate-float,
+  .animate-pulse {
+    animation: none !important;
+  }
+}

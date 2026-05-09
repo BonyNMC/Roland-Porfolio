@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thư viện Tri thức & Blog — Nguyen Manh Cuong</title>
+  <meta name="description" content="Lưu trữ, tổ chức và chia sẻ kiến thức về Vận hành & Chuyển đổi số theo phương pháp P.A.R.A." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/src/css/variables.css" />
+  <link rel="stylesheet" href="/src/css/base.css" />
+  <link rel="stylesheet" href="/src/css/components.css" />
+  <link rel="stylesheet" href="/src/css/layout.css" />
+  <link rel="stylesheet" href="/src/css/animations.css" />
+  <link rel="stylesheet" href="/src/css/pages/blog.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__brand">Nguyen Manh Cuong</a>
+      <nav class="navbar__links">
+        <a href="/" class="navbar__link">Home</a>
+        <a href="/portfolio.html" class="navbar__link">Portfolio</a>
+        <a href="/blog.html" class="navbar__link navbar__link--active">Blog</a>
+        <a href="/podcast.html" class="navbar__link">Podcast</a>
+      </nav>
+      <a href="/#contact" class="btn-plinth navbar__cta">Contact</a>
+      <button class="navbar__mobile-toggle" aria-label="Menu"><span class="material-symbols-outlined">menu</span></button>
+    </div>
+  </header>
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="/" class="mobile-menu__link">Home</a>
+    <a href="/portfolio.html" class="mobile-menu__link">Portfolio</a>
+    <a href="/blog.html" class="mobile-menu__link mobile-menu__link--active">Blog</a>
+    <a href="/podcast.html" class="mobile-menu__link">Podcast</a>
+  </nav>
+
+  <main class="section section-py-lg">
+    <!-- Page Header -->
+    <div class="blog-header reveal">
+      <h1 class="text-display-lg text-primary" style="margin-bottom:var(--space-2);">Thư viện Tri thức & Blog</h1>
+      <p class="text-body-lg text-on-surface-variant" style="max-width:700px;">Lưu trữ, tổ chức và chia sẻ những kiến thức, triết lý và kinh nghiệm về Vận hành & Chuyển đổi số theo phương pháp P.A.R.A.</p>
+    </div>
+
+    <div class="grid-12" style="align-items:start;">
+      <!-- Sidebar PARA Nav -->
+      <aside class="col-span-3 blog-sidebar reveal-left">
+        <!-- Search -->
+        <div class="blog-search">
+          <input type="text" class="ledger-input blog-search__input" placeholder="Tìm kiếm bài viết..." id="blog-search" />
+          <span class="material-symbols-outlined blog-search__icon">search</span>
+        </div>
+
+        <!-- PARA Navigation -->
+        <nav class="para-nav">
+          <h2 class="text-label-caps text-secondary para-nav__title">P.A.R.A METHOD</h2>
+          <a href="#" class="para-nav__item para-nav__item--active" data-para="Projects">
+            <span class="para-nav__item-left"><span class="material-symbols-outlined text-secondary">rocket_launch</span> Projects</span>
+            <span class="text-label-caps text-on-surface-variant">Dự án</span>
+          </a>
+          <a href="#" class="para-nav__item" data-para="Areas">
+            <span class="para-nav__item-left"><span class="material-symbols-outlined">folder_special</span> Areas</span>
+            <span class="text-label-caps text-on-surface-variant">Lĩnh vực</span>
+          </a>
+          <a href="#" class="para-nav__item" data-para="Resources">
+            <span class="para-nav__item-left"><span class="material-symbols-outlined">library_books</span> Resources</span>
+            <span class="text-label-caps text-on-surface-variant">Tài nguyên</span>
+          </a>
+          <a href="#" class="para-nav__item" data-para="Archives">
+            <span class="para-nav__item-left"><span class="material-symbols-outlined">inventory_2</span> Archives</span>
+            <span class="text-label-caps text-on-surface-variant">Lưu trữ</span>
+          </a>
+        </nav>
+
+        <!-- Subscribe Card -->
+        <div class="subscribe-card">
+          <div class="subscribe-card__label text-label-caps text-secondary">SUBSCRIBE</div>
+          <p class="text-body-md text-on-surface-variant" style="margin-bottom:var(--space-2);margin-top:var(--space-unit);">Nhận cập nhật về các bài viết mới và tài liệu chuyên sâu hàng tháng.</p>
+          <input type="email" class="ledger-input" placeholder="Email của bạn" style="width:100%;margin-bottom:var(--space-2);" />
+          <button class="btn-plinth" style="width:100%;">ĐĂNG KÝ</button>
+        </div>
+      </aside>
+
+      <!-- Blog Content -->
+      <div class="col-span-9">
+        <div class="blog-content__header">
+          <h2 class="text-headline-md text-primary" id="blog-category-title">Tất cả bài viết</h2>
+          <span class="text-label-caps text-on-surface-variant" id="blog-count"></span>
+        </div>
+
+        <div class="blog-grid" id="blog-grid">
+          <div class="skeleton" style="height:280px;grid-column:1/-1;"></div>
+          <div class="skeleton" style="height:280px;"></div>
+          <div class="skeleton" style="height:280px;"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__brand-name">Nguyen Manh Cuong</div>
+        <p class="footer__brand-copy">© 2024 Nguyen Manh Cuong. Manufacturing Excellence & Digital Transformation.</p>
+      </div>
+      <nav class="footer__links">
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="https://open.spotify.com/show/6yPXHY4USWEaZ7KY5rRANB" class="footer__link" target="_blank">Spotify</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/blog.js"></script>
+</body>
+</html>

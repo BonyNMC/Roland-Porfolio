@@ -1,0 +1,155 @@
+/* Portfolio Page Styles */
+
+.portfolio-hero__aside {
+  border-top: var(--border-ghost);
+  padding-top: var(--space-2);
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+}
+
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Project Card */
+.project-card {
+  border: 1px solid rgba(130,116,112,0.3);
+  background-color: var(--surface);
+  padding: var(--space-4);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: background-color var(--transition-base);
+}
+
+.project-card:hover {
+  background-color: var(--surface-dim);
+}
+
+.project-card__icon {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  opacity: 0.1;
+}
+
+.project-card__icon .material-symbols-outlined {
+  font-size: 48px;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-unit);
+  margin-bottom: var(--space-2);
+}
+
+.project-card__impact {
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: var(--border-ghost);
+}
+
+/* Skills Section */
+.skills-section {
+  background-color: var(--surface-container);
+  border: 1px solid rgba(130,116,112,0.2);
+  padding: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .skills-section { padding: var(--space-6); }
+}
+
+.skill-category {
+  margin-bottom: var(--space-3);
+}
+
+.skill-category__title {
+  padding-bottom: var(--space-unit);
+  border-bottom: var(--border-ghost);
+  margin-bottom: var(--space-2);
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-unit);
+}
+
+.skill-chip {
+  border: 1px solid rgba(130,116,112,0.3);
+  padding: var(--space-unit) var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-label-caps);
+  font-weight: var(--text-label-caps-fw);
+  letter-spacing: var(--text-label-caps-ls);
+  text-transform: uppercase;
+  color: var(--on-surface);
+}
+
+/* Testimonials */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+}
+
+@media (min-width: 768px) {
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.testimonial-card {
+  padding: var(--space-4);
+  border: 1px solid rgba(130,116,112,0.2);
+  background-color: var(--surface);
+  position: relative;
+}
+
+.testimonial-card__quote-icon {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  opacity: 0.15;
+}
+
+.testimonial-card__text {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--on-surface);
+  position: relative;
+  z-index: 1;
+  padding-top: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.testimonial-card__avatar {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface-dim);
+  border: 1px solid rgba(130,116,112,0.2);
+}
+
+.testimonial-card__avatar span {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--primary);
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Nguyen Manh Cuong</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/src/css/variables.css" />
+  <link rel="stylesheet" href="/src/css/base.css" />
+  <link rel="stylesheet" href="/src/css/components.css" />
+  <link rel="stylesheet" href="/src/css/layout.css" />
+  <link rel="stylesheet" href="/src/css/pages/admin.css" />
+</head>
+<body>
+  <!-- LOGIN SCREEN -->
+  <div class="admin-login" id="login-screen">
+    <div class="admin-login__card">
+      <div class="admin-login__header">
+        <span class="material-symbols-outlined" style="font-size:32px;color:var(--secondary);">lock</span>
+        <h1 class="text-headline-md text-primary">Admin Portal</h1>
+        <p class="text-body-md text-on-surface-variant">Đăng nhập để quản lý nội dung portfolio</p>
+      </div>
+      <form id="login-form" class="admin-login__form">
+        <div class="admin-field">
+          <label class="text-label-caps text-on-surface-variant">MẬT KHẨU</label>
+          <input type="password" id="login-password" class="ledger-input" placeholder="Nhập mật khẩu admin..." required autocomplete="current-password" />
+        </div>
+        <button type="submit" class="btn-plinth" style="width:100%;" id="login-btn">
+          <span class="material-symbols-outlined" style="font-size:16px;">login</span>
+          ĐĂNG NHẬP
+        </button>
+        <p class="admin-login__error text-body-md" id="login-error" style="display:none;"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="admin-dashboard" id="dashboard" style="display:none;">
+    <!-- Top Bar -->
+    <header class="admin-topbar">
+      <div class="admin-topbar__left">
+        <a href="/" class="navbar__brand" style="font-size:20px;">Nguyen Manh Cuong</a>
+        <span class="text-label-caps text-secondary" style="margin-left:var(--space-2);">ADMIN</span>
+      </div>
+      <div class="admin-topbar__right">
+        <a href="/" class="btn-ghost" style="padding:6px 12px;font-size:11px;">
+          <span class="material-symbols-outlined" style="font-size:14px;">open_in_new</span> SITE
+        </a>
+        <button class="btn-ghost" style="padding:6px 12px;font-size:11px;" id="change-pass-btn">
+          <span class="material-symbols-outlined" style="font-size:14px;">key</span> ĐỔI MẬT KHẨU
+        </button>
+        <button class="btn-ghost" style="padding:6px 12px;font-size:11px;" id="logout-btn">
+          <span class="material-symbols-outlined" style="font-size:14px;">logout</span> ĐĂNG XUẤT
+        </button>
+      </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="admin-tabs" id="admin-tabs">
+      <button class="admin-tab admin-tab--active" data-tab="projects">
+        <span class="material-symbols-outlined">factory</span> Dự án
+      </button>
+      <button class="admin-tab" data-tab="blog_posts">
+        <span class="material-symbols-outlined">article</span> Blog
+      </button>
+      <button class="admin-tab" data-tab="podcast_episodes">
+        <span class="material-symbols-outlined">podcasts</span> Podcast
+      </button>
+      <button class="admin-tab" data-tab="skills">
+        <span class="material-symbols-outlined">build</span> Skills
+      </button>
+      <button class="admin-tab" data-tab="testimonials">
+        <span class="material-symbols-outlined">format_quote</span> Nhận xét
+      </button>
+    </nav>
+
+    <!-- Content Area -->
+    <main class="admin-content">
+      <!-- Action Bar -->
+      <div class="admin-action-bar">
+        <h2 class="text-headline-sm text-primary" id="tab-title">Quản lý Dự án</h2>
+        <button class="btn-plinth" id="add-new-btn">
+          <span class="material-symbols-outlined" style="font-size:16px;">add</span> THÊM MỚI
+        </button>
+      </div>
+
+      <!-- Data Table -->
+      <div class="admin-table-wrap" id="table-container">
+        <div class="skeleton" style="height:300px;"></div>
+      </div>
+    </main>
+
+    <!-- Modal for Add/Edit -->
+    <div class="admin-modal-overlay" id="modal-overlay" style="display:none;">
+      <div class="admin-modal" id="modal">
+        <div class="admin-modal__header">
+          <h3 class="text-headline-sm text-primary" id="modal-title">Thêm mới</h3>
+          <button class="admin-modal__close" id="modal-close">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <form class="admin-modal__form" id="modal-form">
+          <div id="modal-fields"></div>
+          <div class="admin-modal__actions">
+            <button type="button" class="btn-ghost" id="modal-cancel">HỦY</button>
+            <button type="submit" class="btn-plinth" id="modal-save">
+              <span class="material-symbols-outlined" style="font-size:16px;">save</span> LƯU
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Delete Confirm -->
+    <div class="admin-modal-overlay" id="delete-overlay" style="display:none;">
+      <div class="admin-modal" style="max-width:400px;">
+        <div class="admin-modal__header">
+          <h3 class="text-headline-sm text-primary">Xác nhận xóa</h3>
+        </div>
+        <p class="text-body-md text-on-surface-variant" style="padding:var(--space-3);">Bạn có chắc muốn xóa mục này? Hành động không thể hoàn tác.</p>
+        <div class="admin-modal__actions">
+          <button class="btn-ghost" id="delete-cancel">HỦY</button>
+          <button class="btn-plinth" style="background:var(--error);border-color:var(--error);" id="delete-confirm">
+            <span class="material-symbols-outlined" style="font-size:16px;">delete</span> XÓA
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div class="admin-modal-overlay" id="password-overlay" style="display:none;">
+      <div class="admin-modal" style="max-width:420px;">
+        <div class="admin-modal__header">
+          <h3 class="text-headline-sm text-primary">Đổi Mật Khẩu</h3>
+          <button class="admin-modal__close" id="password-close">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <form class="admin-modal__form" id="password-form">
+          <div class="admin-field">
+            <label class="text-label-caps text-on-surface-variant">MẬT KHẨU HIỆN TẠI</label>
+            <input type="password" class="ledger-input" name="currentPassword" required autocomplete="current-password" />
+          </div>
+          <div class="admin-field">
+            <label class="text-label-caps text-on-surface-variant">MẬT KHẨU MỚI (tối thiểu 6 ký tự)</label>
+            <input type="password" class="ledger-input" name="newPassword" required minlength="6" autocomplete="new-password" />
+          </div>
+          <div class="admin-field">
+            <label class="text-label-caps text-on-surface-variant">XÁC NHẬN MẬT KHẨU MỚI</label>
+            <input type="password" class="ledger-input" name="confirmPassword" required minlength="6" autocomplete="new-password" />
+          </div>
+          <div class="admin-modal__actions">
+            <button type="button" class="btn-ghost" id="password-cancel">HỦY</button>
+            <button type="submit" class="btn-plinth" id="password-save">
+              <span class="material-symbols-outlined" style="font-size:16px;">key</span> ĐỔI MẬT KHẨU
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="admin-toast" id="toast" style="display:none;"></div>
+  </div>
+
+  <script type="module" src="/src/js/admin.js"></script>
+</body>
+</html>

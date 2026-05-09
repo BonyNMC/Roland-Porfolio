@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Băng chuyền & Suy ngẫm — Podcast | Nguyen Manh Cuong</title>
+  <meta name="description" content="Podcast về giao điểm giữa quản trị công nghiệp, chuyển đổi số và triết học. Nghe trên Spotify." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/src/css/variables.css" />
+  <link rel="stylesheet" href="/src/css/base.css" />
+  <link rel="stylesheet" href="/src/css/components.css" />
+  <link rel="stylesheet" href="/src/css/layout.css" />
+  <link rel="stylesheet" href="/src/css/animations.css" />
+  <link rel="stylesheet" href="/src/css/pages/podcast.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__brand">Nguyen Manh Cuong</a>
+      <nav class="navbar__links">
+        <a href="/" class="navbar__link">Home</a>
+        <a href="/portfolio.html" class="navbar__link">Portfolio</a>
+        <a href="/blog.html" class="navbar__link">Blog</a>
+        <a href="/podcast.html" class="navbar__link navbar__link--active">Podcast</a>
+      </nav>
+      <a href="/#contact" class="btn-plinth navbar__cta">Contact</a>
+      <button class="navbar__mobile-toggle" aria-label="Menu"><span class="material-symbols-outlined">menu</span></button>
+    </div>
+  </header>
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="/" class="mobile-menu__link">Home</a>
+    <a href="/portfolio.html" class="mobile-menu__link">Portfolio</a>
+    <a href="/blog.html" class="mobile-menu__link">Blog</a>
+    <a href="/podcast.html" class="mobile-menu__link mobile-menu__link--active">Podcast</a>
+  </nav>
+
+  <main>
+    <!-- Hero (Technical Margin) -->
+    <section class="section section-py-lg">
+      <div class="grid-12" style="align-items:start;">
+        <aside class="col-span-3 podcast-hero__aside reveal-left">
+          <span class="text-label-caps text-on-surface-variant" style="display:block;margin-bottom:var(--space-unit);">Âm thanh & Lắng đọng</span>
+          <div style="height:1px;width:32px;background:var(--outline-variant);margin:var(--space-unit) 0;"></div>
+          <p class="text-body-md text-on-surface-variant">Một không gian thính giác dành cho những khối óc logic, tìm kiếm sự cân bằng giữa nhịp độ sản xuất và nhịp đập tâm hồn.</p>
+        </aside>
+        <div class="col-span-9 reveal">
+          <h1 class="text-display-lg text-primary" style="margin-bottom:var(--space-3);max-width:700px;">Băng chuyền & Suy ngẫm — Podcast</h1>
+          <p class="text-body-lg" style="max-width:640px;margin-bottom:var(--space-4);">
+            Nơi giao thoa giữa kỷ luật của sản xuất công nghiệp, tư duy chuyển đổi số và những chiêm nghiệm triết học sâu sắc. Khám phá sự tĩnh lặng giữa guồng quay máy móc.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--space-2);">
+            <a href="https://open.spotify.com/show/6yPXHY4USWEaZ7KY5rRANB" target="_blank" rel="noopener" class="btn-plinth">
+              <span class="material-symbols-outlined" style="font-size:16px;">graphic_eq</span>
+              Theo dõi trên Spotify
+            </a>
+            <a href="#" class="btn-ghost">
+              <span class="material-symbols-outlined" style="font-size:16px;">podcasts</span>
+              Apple Podcasts
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topic Chips -->
+    <section class="section" style="border-top:var(--border-ghost);border-bottom:var(--border-ghost);padding-top:var(--space-3);padding-bottom:var(--space-3);margin-bottom:var(--space-6);">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-unit);">
+        <span class="text-label-caps text-on-surface-variant" style="margin-right:var(--space-2);">Chủ đề:</span>
+        <button class="chip chip--active podcast-filter" data-filter="all">Tất cả</button>
+        <button class="chip podcast-filter" data-filter="Management">Quản trị</button>
+        <button class="chip podcast-filter" data-filter="Philosophy">Triết học</button>
+        <button class="chip podcast-filter" data-filter="Digital">Chuyển đổi số</button>
+        <button class="chip podcast-filter" data-filter="Travel">Hành trình</button>
+      </div>
+    </section>
+
+    <!-- Featured Episode -->
+    <section class="section" style="margin-bottom:var(--space-6);">
+      <div style="display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-3);">
+        <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1;">star</span>
+        <h2 class="text-headline-md text-primary">Tập Mới Nhất</h2>
+      </div>
+      <div class="featured-episode reveal-scale" id="featured-episode">
+        <div class="skeleton" style="height:300px;"></div>
+      </div>
+    </section>
+
+    <!-- Episode Archive Grid -->
+    <section class="section" style="margin-bottom:var(--space-12);">
+      <h2 class="text-headline-md text-primary" style="border-bottom:var(--border-ghost);padding-bottom:var(--space-2);margin-bottom:var(--space-4);">Kho Lưu Trữ Podcast</h2>
+      <div class="episodes-grid" id="episodes-grid">
+        <div class="skeleton" style="height:250px;"></div>
+        <div class="skeleton" style="height:250px;"></div>
+        <div class="skeleton" style="height:250px;"></div>
+      </div>
+      <div style="display:flex;justify-content:center;margin-top:var(--space-4);">
+        <button class="btn-ghost" id="load-more-btn" style="display:none;">Tải Thêm Tập</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__brand-name">Nguyen Manh Cuong</div>
+        <p class="footer__brand-copy">© 2024 Nguyen Manh Cuong. Manufacturing Excellence & Digital Transformation.</p>
+      </div>
+      <nav class="footer__links">
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="https://open.spotify.com/show/6yPXHY4USWEaZ7KY5rRANB" class="footer__link" target="_blank">Spotify</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/podcast.js"></script>
+</body>
+</html>
