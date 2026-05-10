@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài viết — Nguyen Manh Cuong</title>
+  <meta name="description" content="Bài viết chi tiết từ Thư viện Tri thức PARA" />
+  <meta name="author" content="Nguyễn Mạnh Cường" />
+  <meta name="theme-color" content="#442a22" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/src/css/variables.css" />
+  <link rel="stylesheet" href="/src/css/base.css" />
+  <link rel="stylesheet" href="/src/css/components.css" />
+  <link rel="stylesheet" href="/src/css/layout.css" />
+  <link rel="stylesheet" href="/src/css/animations.css" />
+  <link rel="stylesheet" href="/src/css/pages/blog-detail.css" />
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__brand">Nguyen Manh Cuong</a>
+      <nav class="navbar__links">
+        <a href="/" class="navbar__link">Home</a>
+        <a href="/portfolio.html" class="navbar__link">Portfolio</a>
+        <a href="/blog.html" class="navbar__link navbar__link--active">Blog</a>
+        <a href="/podcast.html" class="navbar__link">Podcast</a>
+      </nav>
+      <a href="/#contact" class="btn-plinth navbar__cta">Contact</a>
+      <button class="navbar__mobile-toggle" aria-label="Menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="/" class="mobile-menu__link">Home</a>
+    <a href="/portfolio.html" class="mobile-menu__link">Portfolio</a>
+    <a href="/blog.html" class="mobile-menu__link mobile-menu__link--active">Blog</a>
+    <a href="/podcast.html" class="mobile-menu__link">Podcast</a>
+    <a href="/#contact" class="btn-plinth" style="margin-top:auto;text-align:center;">Contact</a>
+  </nav>
+
+  <main>
+    <!-- ═══ ARTICLE HEADER ═══ -->
+    <section class="section section-py-lg" id="article-header">
+      <div class="article__breadcrumb reveal">
+        <a href="/blog.html" class="btn-link" style="font-size:13px;">
+          <span class="material-symbols-outlined" style="font-size:14px;">arrow_back</span>
+          Quay lại Thư viện
+        </a>
+      </div>
+
+      <div class="article__meta reveal" id="article-meta">
+        <!-- Populated by JS -->
+        <div class="skeleton" style="height:18px;width:120px;"></div>
+      </div>
+
+      <h1 class="text-display-lg text-primary article__title reveal" id="article-title">
+        <div class="skeleton" style="height:48px;width:80%;"></div>
+      </h1>
+
+      <p class="text-body-lg text-on-surface-variant article__excerpt reveal" id="article-excerpt">
+        <div class="skeleton" style="height:20px;width:95%;"></div>
+        <div class="skeleton" style="height:20px;width:70%;margin-top:8px;"></div>
+      </p>
+
+      <div class="article__divider reveal">
+        <hr class="divider" />
+      </div>
+    </section>
+
+    <!-- ═══ ARTICLE BODY ═══ -->
+    <section class="section" id="article-body-section">
+      <article class="article__content reveal" id="article-body">
+        <!-- Google Docs content rendered here -->
+        <div style="display:flex;flex-direction:column;gap:16px;padding:40px 0;">
+          <div class="skeleton" style="height:20px;width:100%;"></div>
+          <div class="skeleton" style="height:20px;width:92%;"></div>
+          <div class="skeleton" style="height:20px;width:85%;"></div>
+          <div class="skeleton" style="height:200px;width:100%;margin:16px 0;"></div>
+          <div class="skeleton" style="height:20px;width:97%;"></div>
+          <div class="skeleton" style="height:20px;width:88%;"></div>
+          <div class="skeleton" style="height:20px;width:76%;"></div>
+        </div>
+      </article>
+
+      <!-- No content fallback -->
+      <div class="article__no-content" id="article-no-content" style="display:none;">
+        <span class="material-symbols-outlined" style="font-size:48px;color:var(--outline);margin-bottom:var(--space-2);">draft</span>
+        <p class="text-body-lg text-on-surface-variant">Bài viết này chưa có nội dung chi tiết.</p>
+        <p class="text-body-md text-outline" style="margin-top:var(--space-unit);">Tác giả chưa liên kết Google Docs cho bài viết này.</p>
+        <a href="/blog.html" class="btn-ghost" style="margin-top:var(--space-3);">
+          <span class="material-symbols-outlined" style="font-size:14px;">arrow_back</span> Quay lại
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══ POST FOOTER ═══ -->
+    <section class="section section-py-lg" id="article-footer" style="display:none;">
+      <hr class="divider" style="margin-bottom:var(--space-6);" />
+      <div class="layout-technical">
+        <div class="layout-technical__aside">
+          <h2 class="text-label-caps text-on-surface-variant">Tags</h2>
+          <div id="article-tags" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--space-unit);"></div>
+        </div>
+        <div class="layout-technical__main">
+          <h3 class="text-headline-sm text-primary" style="margin-bottom:var(--space-2);">Tiếp tục khám phá</h3>
+          <p class="text-body-md text-on-surface-variant" style="margin-bottom:var(--space-3);">
+            Tìm thêm các bài viết khác trong Thư viện Tri thức PARA.
+          </p>
+          <a href="/blog.html" class="btn-plinth">
+            <span class="material-symbols-outlined" style="font-size:16px;">library_books</span> Thư viện Tri thức
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__brand-name">Nguyen Manh Cuong</div>
+        <p class="footer__brand-copy">© 2024 Nguyen Manh Cuong. Manufacturing Excellence &amp; Digital Transformation.</p>
+      </div>
+      <nav class="footer__links">
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="https://open.spotify.com/show/6yPXHY4USWEaZ7KY5rRANB" class="footer__link" target="_blank">Spotify</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/blog-detail.js"></script>
+</body>
+</html>

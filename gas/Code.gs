@@ -83,6 +83,26 @@ function doGet(e) {
           }
         });
 
+      case 'getBlogPost': {
+        const postId = e.parameter.id;
+        if (!postId) return jsonResponse({ success: false, error: 'Missing id' });
+        const allPosts = sheetToJson('blog_posts');
+        const post = allPosts.find(p => String(p.id) === String(postId));
+        if (!post) return jsonResponse({ success: false, error: 'Post not found' });
+        return jsonResponse({ success: true, data: post });
+      }
+
+      case 'getDocContent': {
+        const docUrl = e.parameter.url;
+        if (!docUrl) return jsonResponse({ success: false, error: 'Missing url parameter' });
+        try {
+          const result = getDocAsHtml(docUrl);
+          return jsonResponse({ success: true, data: result });
+        } catch (docErr) {
+          return jsonResponse({ success: false, error: 'Cannot read doc: ' + docErr.message });
+        }
+      }
+
       default:
         return jsonResponse({ success: false, error: 'Unknown action: ' + action });
     }
@@ -271,6 +291,51 @@ function setupAdminPassword() {
     .map(b => ('0' + (b & 0xFF).toString(16)).slice(-2)).join('');
   PropertiesService.getScriptProperties().setProperty(ADMIN_PASS_KEY, hash);
   Logger.log('✅ Admin password hash saved. Password: ' + password);
+}
+
+// ── Google Docs → HTML Converter ──
+
+function getDocAsHtml(docUrl) {
+  // Extract doc ID
+  const match = docUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if (!match) throw new Error('Invalid Google Docs URL');
+  const docId = match[1];
+  
+  // Export as HTML via Drive API
+  const token = ScriptApp.getOAuthToken();
+  const exportUrl = 'https://docs.google.com/document/d/' + docId + '/export?format=html';
+  const response = UrlFetchApp.fetch(exportUrl, {
+    headers: { 'Authorization': 'Bearer ' + token },
+    muteHttpExceptions: true
+  });
+  
+  if (response.getResponseCode() !== 200) {
+    throw new Error('Failed to export doc (code: ' + response.getResponseCode() + ')');
+  }
+  
+  let html = response.getContentText();
+  
+  // Strip Google's wrapper — extract only the <body> content
+  const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+  if (bodyMatch) {
+    html = bodyMatch[1];
+  }
+  
+  // Clean up Google's inline styles but keep structure
+  // Remove style attributes to let our CSS handle it
+  html = html.replace(/ style="[^"]*"/g, '');
+  // Remove Google's span wrappers but keep content
+  html = html.replace(/<span[^>]*>/g, '').replace(/<\/span>/g, '');
+  // Clean empty paragraphs
+  html = html.replace(/<p><\/p>/g, '');
+  
+  // Get doc title
+  const doc = DocumentApp.openById(docId);
+  
+  return {
+    title: doc.getName(),
+    html: html
+  };
 }
 
 /**

@@ -46,7 +46,7 @@ function renderPosts(posts) {
 
     if (post.para_type === 'Archives' && !isFeatured) {
       return `
-        <article class="blog-card blog-card--quote">
+        <article class="blog-card blog-card--quote" data-post-id="${post.id}" style="cursor:pointer;">
           <span class="material-symbols-outlined text-secondary" style="font-size:36px;opacity:0.5;margin-bottom:var(--space-2);">format_quote</span>
           <h3 class="text-headline-sm text-primary" style="font-style:italic;max-width:600px;margin-bottom:var(--space-2);">"${post.excerpt}"</h3>
           <div style="display:flex;align-items:center;gap:var(--space-unit);margin-top:var(--space-2);">
@@ -57,7 +57,7 @@ function renderPosts(posts) {
     }
 
     return `
-      <article class="blog-card ${isFeatured ? 'blog-card--featured' : ''}">
+      <article class="blog-card ${isFeatured ? 'blog-card--featured' : ''}" data-post-id="${post.id}" style="cursor:pointer;">
         <div class="blog-card__image">
           <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--surface-container) 0%,var(--surface-dim) 100%);display:flex;align-items:center;justify-content:center;">
             <span class="material-symbols-outlined" style="font-size:48px;opacity:0.15;">article</span>
@@ -78,6 +78,14 @@ function renderPosts(posts) {
   });
 
   grid.innerHTML = cards.join('');
+
+  // Add click handlers to navigate to detail page
+  grid.querySelectorAll('[data-post-id]').forEach(card => {
+    card.addEventListener('click', () => {
+      const postId = card.dataset.postId;
+      window.location.href = `/blog-detail.html?id=${postId}`;
+    });
+  });
 }
 
 function initParaNav() {

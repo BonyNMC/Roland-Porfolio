@@ -1,0 +1,275 @@
+/* ==========================================================================
+   BLOG DETAIL — Article Typography & Layout
+   Renders Google Docs content with Stitch design system
+   ========================================================================== */
+
+/* ── Article Header ── */
+.article__breadcrumb {
+  margin-bottom: var(--space-4);
+}
+
+.article__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.article__para-badge {
+  display: inline-flex;
+  padding: 4px 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-label-caps);
+  font-weight: var(--text-label-caps-fw);
+  letter-spacing: var(--text-label-caps-ls);
+  text-transform: uppercase;
+  background: rgba(121, 87, 58, 0.08);
+  color: var(--secondary);
+  border: 1px solid rgba(121, 87, 58, 0.15);
+}
+
+.article__date {
+  font-family: var(--font-body);
+  font-size: var(--text-label-caps);
+  font-weight: var(--text-label-caps-fw);
+  letter-spacing: var(--text-label-caps-ls);
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+}
+
+.article__title {
+  max-width: 800px;
+  margin-bottom: var(--space-3);
+  line-height: 1.15;
+}
+
+.article__excerpt {
+  max-width: 700px;
+  margin-bottom: var(--space-4);
+  line-height: 1.7;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.article__divider {
+  max-width: 800px;
+}
+
+/* ── Article Body (Google Docs Content) ── */
+.article__content {
+  max-width: 740px;
+  padding-bottom: var(--space-10);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--on-surface);
+}
+
+/* Headings */
+.article__content h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-md);
+  font-weight: var(--text-headline-md-fw);
+  line-height: var(--text-headline-md-lh);
+  color: var(--primary);
+  margin: var(--space-8) 0 var(--space-3);
+  padding-top: var(--space-4);
+  border-top: var(--border-ghost);
+}
+
+.article__content h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm);
+  font-weight: var(--text-headline-sm-fw);
+  line-height: var(--text-headline-sm-lh);
+  color: var(--primary);
+  margin: var(--space-6) 0 var(--space-2);
+}
+
+.article__content h3 {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: var(--space-5) 0 var(--space-2);
+}
+
+.article__content h4,
+.article__content h5,
+.article__content h6 {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin: var(--space-4) 0 var(--space-unit);
+}
+
+/* Paragraphs */
+.article__content p {
+  margin-bottom: var(--space-3);
+}
+
+/* Links */
+.article__content a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.article__content a:hover {
+  color: var(--secondary);
+}
+
+/* Lists */
+.article__content ul,
+.article__content ol {
+  margin: var(--space-2) 0 var(--space-3);
+  padding-left: var(--space-4);
+}
+
+.article__content li {
+  margin-bottom: var(--space-unit);
+  line-height: 1.7;
+}
+
+.article__content ul li::marker {
+  color: var(--secondary);
+}
+
+.article__content ol li::marker {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Blockquotes */
+.article__content blockquote {
+  margin: var(--space-4) 0;
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid var(--secondary);
+  background: rgba(121, 87, 58, 0.03);
+  font-style: italic;
+  color: var(--on-surface-variant);
+}
+
+.article__content blockquote p {
+  margin-bottom: 0;
+}
+
+/* Images */
+.article__content img {
+  max-width: 100%;
+  height: auto;
+  margin: var(--space-4) 0;
+  border: var(--border-ghost);
+}
+
+/* Tables */
+.article__content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-4) 0;
+  font-size: 15px;
+}
+
+.article__content th {
+  background: var(--surface-container);
+  padding: var(--space-unit) var(--space-2);
+  text-align: left;
+  font-weight: 700;
+  font-size: var(--text-label-caps);
+  letter-spacing: var(--text-label-caps-ls);
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  border-bottom: 2px solid var(--outline-variant);
+}
+
+.article__content td {
+  padding: var(--space-unit) var(--space-2);
+  border-bottom: var(--border-ghost);
+  vertical-align: top;
+}
+
+/* Code */
+.article__content code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 14px;
+  padding: 2px 6px;
+  background: var(--surface-container);
+  border: var(--border-ghost);
+}
+
+.article__content pre {
+  margin: var(--space-4) 0;
+  padding: var(--space-3);
+  background: var(--inverse-surface);
+  color: var(--inverse-on-surface);
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.article__content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Horizontal Rules */
+.article__content hr {
+  border: none;
+  border-top: var(--border-ghost);
+  margin: var(--space-6) 0;
+}
+
+/* Bold / Italic */
+.article__content strong,
+.article__content b {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.article__content em,
+.article__content i {
+  font-style: italic;
+}
+
+/* ── No Content Fallback ── */
+.article__no-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-10) var(--space-4);
+}
+
+/* ── Error State ── */
+.article__error {
+  text-align: center;
+  padding: var(--space-10) var(--space-4);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .article__title {
+    font-size: var(--text-display-lg-mobile);
+    line-height: var(--text-display-lg-mobile-lh);
+  }
+
+  .article__content {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .article__content h1 {
+    font-size: var(--text-headline-sm);
+  }
+
+  .article__content h2 {
+    font-size: 22px;
+  }
+}
