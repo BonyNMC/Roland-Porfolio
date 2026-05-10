@@ -130,35 +130,32 @@ export function showError(container, message = 'Không thể tải dữ liệu. 
 
 /**
  * Convert Google Drive share link to direct image URL
- * Uses lh3.googleusercontent.com/d/ format (most reliable for embedding)
+ * Uses drive.google.com/thumbnail API (most reliable for img embedding)
  * Input:  https://drive.google.com/file/d/FILE_ID/view?usp=sharing
- * Output: https://lh3.googleusercontent.com/d/FILE_ID=s1000
+ * Output: https://drive.google.com/thumbnail?id=FILE_ID&sz=w800
  */
 export function driveImageUrl(url) {
   if (!url) return '';
-  // Already a direct image host
-  if (url.includes('lh3.googleusercontent.com')) return url;
+  // Already a thumbnail URL
+  if (url.includes('/thumbnail?')) return url;
+  // Already a direct image host (external URL)
+  if (!url.includes('drive.google.com') && !url.includes('googleapis.com') && url.startsWith('http')) {
+    return url;
+  }
   // Extract file ID from various Drive URL formats
   let fileId = null;
-  // Format: /file/d/FILE_ID/...
   const match1 = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
   if (match1) fileId = match1[1];
-  // Format: ?id=FILE_ID
   if (!fileId) {
     const match2 = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
     if (match2) fileId = match2[1];
-  }
-  // Format: uc?export=view&id=FILE_ID
-  if (!fileId && url.includes('uc?export=view')) {
-    const match3 = url.match(/id=([a-zA-Z0-9_-]+)/);
-    if (match3) fileId = match3[1];
   }
   // Might be just a raw ID
   if (!fileId && /^[a-zA-Z0-9_-]{20,}$/.test(url.trim())) {
     fileId = url.trim();
   }
   if (fileId) {
-    return `https://lh3.googleusercontent.com/d/${fileId}=s1000`;
+    return `https://drive.google.com/thumbnail?id=${fileId}&sz=w800`;
   }
   return url;
 }
