@@ -2,7 +2,7 @@
    ADMIN JS — Login, CRUD operations via GAS API
    ========================================================================== */
 
-const API_URL = 'https://script.google.com/macros/s/AKfycbxh956mQcnj38g8iG4B_XRJ3fqZ4yAp8HXJs7hrjI8-Q1qrPz-R83M1nnabr5ytF2fE6w/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbxHe7my5-gHA-HxulpTFjZsIt6rn42pUvF6FJOC3AimIvNFnDl_9P5a4meEZrzklCH6sw/exec';
 const TOKEN_KEY = 'portfolio_admin_token';
 
 // Schema definitions for each tab

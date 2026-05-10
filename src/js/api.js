@@ -4,7 +4,7 @@
    ========================================================================== */
 
 const GAS_CONFIG = {
-  WEB_APP_URL: 'https://script.google.com/macros/s/AKfycbxh956mQcnj38g8iG4B_XRJ3fqZ4yAp8HXJs7hrjI8-Q1qrPz-R83M1nnabr5ytF2fE6w/exec',
+  WEB_APP_URL: 'https://script.google.com/macros/s/AKfycbxHe7my5-gHA-HxulpTFjZsIt6rn42pUvF6FJOC3AimIvNFnDl_9P5a4meEZrzklCH6sw/exec',
   CACHE_TTL: 5 * 60 * 1000, // 5 minutes
 };
 

@@ -5,7 +5,7 @@
 import { initAllAnimations } from './animations.js';
 import { fetchData, formatDateVi } from './api.js';
 
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbxh956mQcnj38g8iG4B_XRJ3fqZ4yAp8HXJs7hrjI8-Q1qrPz-R83M1nnabr5ytF2fE6w/exec';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   initAllAnimations();
@@ -83,28 +83,21 @@ async function loadDocContent(docUrl) {
   const bodyEl = document.getElementById('article-body');
 
   try {
-    // Fetch doc content via GAS
-    const url = new URL(GAS_URL);
-    url.searchParams.set('action', 'getDocContent');
-    url.searchParams.set('url', docUrl.toString().trim());
-
-    const response = await fetch(url.toString());
-    const data = await response.json();
+    // Fetch doc content via GAS (uses same API URL as all other calls)
+    const data = await fetchData('getDocContent', { url: docUrl.toString().trim() });
 
     if (data.success && data.data && data.data.html) {
       // Render clean HTML
       bodyEl.innerHTML = data.data.html;
 
-      // Post-process: convert any Google Drive image links
+      // Post-process: ensure images are responsive
       bodyEl.querySelectorAll('img').forEach(img => {
-        const src = img.getAttribute('src') || '';
-        // If it's a Google Docs internal image, try to keep it
-        if (src.includes('googleusercontent.com')) {
-          img.style.maxWidth = '100%';
-        }
+        img.style.maxWidth = '100%';
+        img.style.height = 'auto';
       });
     } else {
-      // Doc fetch failed — show fallback
+      // Doc fetch failed — show fallback with error info
+      console.warn('[BlogDetail] Doc content error:', data.error || 'Unknown');
       bodyEl.style.display = 'none';
       document.getElementById('article-no-content').style.display = '';
     }
