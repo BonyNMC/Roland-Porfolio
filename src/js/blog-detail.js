@@ -22,14 +22,18 @@ async function loadBlogDetail() {
   }
 
   try {
-    // Step 1: Fetch post metadata
-    const postRes = await fetchData('getBlogPost', { id: postId });
-    if (!postRes.success || !postRes.data) {
-      showError('Bài viết không tồn tại.');
+    // Step 1: Fetch all posts and find by ID (uses existing endpoint)
+    const postsRes = await fetchData('getBlogPosts');
+    if (!postsRes.success || !postsRes.data) {
+      showError('Không thể tải dữ liệu bài viết.');
       return;
     }
 
-    const post = postRes.data;
+    const post = postsRes.data.find(p => String(p.id) === String(postId));
+    if (!post) {
+      showError('Bài viết không tồn tại.');
+      return;
+    }
     renderPostHeader(post);
 
     // Step 2: If content_url exists, fetch Google Docs content
